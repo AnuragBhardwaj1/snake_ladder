@@ -16,7 +16,7 @@ class TestBoard < Minitest::Test
   end
 
   def test_get_new_location_when_vaild_dice_roll_with_snake
-    @board.snakes = Snake.new(13,6)
+    @board.snakes.push(SnakeLadders::Snake.new(13,6))
     assert_equal 6, @board.get_new_location(10, 3)
   end
 
@@ -30,5 +30,15 @@ class TestBoard < Minitest::Test
 
   def test_exausted_by_when_not_exhausted
     assert_equal false, @board.exausted_by?(50)
+  end
+
+  def test_adjusted_location_with_snake
+    new_location  = @board.send :adjusted_location, 13
+    assert_equal 6, new_location
+  end
+
+  def test_adjusted_location
+    new_location  = @board.send :adjusted_location, 15
+    assert_equal 15, new_location
   end
 end

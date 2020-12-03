@@ -1,9 +1,9 @@
 require "test_helper"
-require_relative "../../lib/snake_ladders/dice.rb"
+require_relative "../../../lib/snake_ladders/dices/dice.rb"
 
 class DiceTest < Minitest::Test
   def setup
-    @dice = SnakeLadders::Dice.new
+    @dice = SnakeLadders::Dices::Dice.new
   end
 
   def test_dice_roll

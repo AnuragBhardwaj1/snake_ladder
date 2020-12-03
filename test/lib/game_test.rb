@@ -11,7 +11,7 @@ class GameTest < Minitest::Test
   end
 
   def test_new_game_has_dice
-    assert_instance_of SnakeLadders::Dice, @game.dice
+    assert_instance_of SnakeLadders::Dices::Dice, @game.dice
   end
 
   def test_new_game_has_board
@@ -88,7 +88,7 @@ class GameTest < Minitest::Test
     assert update_player_state_spy.has_been_called_with?(dice_output)
   end
 
-  def test_play_turn_calls_mark_complete
+  def test_play_turn_calls_board_exausted?
     board_exausted_spy = ::Spy.on(@game, :board_exausted?)
 
     @game.send :play_turn

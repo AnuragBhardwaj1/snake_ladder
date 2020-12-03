@@ -19,9 +19,11 @@ module SnakeLadders
     private
 
     def initialize
-      self.cells, self.snakes = [], []
+      self.cells = []
+      self.snakes = []
+      snake = Snake.new(13, 6)
       BOARD_SIZE.times { cells << Cell.new() }
-      self.snakes << Snake.new(13, 6)
+      self.snakes.push(snake)
     end
 
     def final_cell_position
@@ -30,7 +32,8 @@ module SnakeLadders
 
     def adjusted_location(new_location)
       location = new_location
-      snake = snakes.select { |snake| snake.start_location == new_location }.first
+      eligible_snakes = snakes.select { |snake| snake.start_location == new_location }
+      snake = !eligible_snakes.empty? && eligible_snakes.first
       location = snake.end_location if snake
 
       location

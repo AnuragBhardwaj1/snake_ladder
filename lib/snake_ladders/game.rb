@@ -1,5 +1,6 @@
 require_relative "./player.rb"
-require_relative "./dice.rb"
+require_relative "./dices/dice.rb"
+require_relative "./dices/crooked_dice.rb"
 require_relative "./board.rb"
 require_relative "./session.rb"
 
@@ -16,7 +17,7 @@ module SnakeLadders
     private
       def initialize
         self.players = []
-        self.dice = Dice.new
+        self.dice = Dices::Dice.new
         self.board = Board.new()
         self.players << Player.new()
         self.session = Session.new(players)

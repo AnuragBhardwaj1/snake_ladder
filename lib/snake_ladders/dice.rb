@@ -1,11 +1,7 @@
 module SnakeLadders
   class Dice
     def roll
-      rand(1..6)
-    end
-
-    private
-    def initialize
+      raise "roll not defined"
     end
   end
 end
