@@ -1,5 +1,6 @@
 require "test_helper"
 require_relative "../../lib/snake_ladders/board.rb"
+require_relative "../../lib/snake_ladders/snake.rb"
 
 class TestBoard < Minitest::Test
   def setup
@@ -10,8 +11,13 @@ class TestBoard < Minitest::Test
     assert_equal 100, @board.cells.length
   end
 
-  def test_get_new_location_when_vaild_dice_roll
+  def test_get_new_location_when_vaild_dice_roll_with_out_snake
     assert_equal 16, @board.get_new_location(10, 6)
+  end
+
+  def test_get_new_location_when_vaild_dice_roll_with_snake
+    @board.snakes = Snake.new(13,6)
+    assert_equal 6, @board.get_new_location(10, 3)
   end
 
   def test_get_new_location_when_non_accomodative_dice_roll
