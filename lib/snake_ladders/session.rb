@@ -14,7 +14,7 @@ module SnakeLadders
     private
     def initialize players
       self.players_info = {}
-      players.each { |player| puts player && self.players_info[player] = nil }
+      players.each { |player| self.players_info[player] = 0 }
     end
   end
 end

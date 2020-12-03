@@ -9,7 +9,7 @@ class SessionTest < Minitest::Test
   end
 
   def test_get_when_not_present
-    assert_nil @session.get(@player)
+    assert_equal 0, @session.get(@player)
   end
 
   def test_get_when_present

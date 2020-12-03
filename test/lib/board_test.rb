@@ -25,20 +25,20 @@ class TestBoard < Minitest::Test
   end
 
   def test_exausted_by_when_exhausted
-    assert_equal true, @board.exausted_by?(99)
+    assert_equal true, @board.exausted_by?(100)
   end
 
   def test_exausted_by_when_not_exhausted
     assert_equal false, @board.exausted_by?(50)
   end
 
-  def test_adjusted_location_with_snake
-    new_location  = @board.send :adjusted_location, 13
-    assert_equal 6, new_location
+  def test_adjust_location_with_snake
+    new_location  = @board.send :adjust_location, 14
+    assert_equal 7, new_location
   end
 
-  def test_adjusted_location
-    new_location  = @board.send :adjusted_location, 15
+  def test_adjust_location
+    new_location  = @board.send :adjust_location, 15
     assert_equal 15, new_location
   end
 end

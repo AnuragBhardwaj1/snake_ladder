@@ -1,7 +1,7 @@
 require "test_helper"
 require_relative "../../../lib/snake_ladders/dices/crooked_dice.rb"
 
-class DiceTest < Minitest::Test
+class CrookedDiceTest < Minitest::Test
   def setup
     @dice = SnakeLadders::Dices::CrookedDice.new
   end

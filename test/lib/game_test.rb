@@ -30,7 +30,7 @@ class GameTest < Minitest::Test
     player = @game.players.first
     @game.send :update_player_state, 6
 
-    assert_equal 5, @game.session.players_info[player]
+    assert_equal 6, @game.session.players_info[player]
   end
 
   def test_update_player_state_when_can_not_be_changed
@@ -49,10 +49,8 @@ class GameTest < Minitest::Test
   end
 
   def test_mark_complete
-    @game.stub :after_complete, true do
-      @game.send :mark_complete
-      assert @game.complete
-    end
+    @game.send :mark_complete
+    assert @game.complete
   end
 
   def test_play_turn

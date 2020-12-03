@@ -7,13 +7,12 @@ module SnakeLadders
     attr_accessor :cells, :snakes
 
     def get_new_location(current_location, dice_output)
-      current_location = -1 unless current_location
-      new_location = current_location + dice_output
-      new_location <= final_cell_position ? adjusted_location(new_location) : current_location
+      location = current_location + dice_output
+      location <= BOARD_SIZE ? adjust_location(location) : current_location
     end
 
     def exausted_by?(location)
-      location == final_cell_position
+      location == BOARD_SIZE
     end
 
     private
@@ -21,16 +20,12 @@ module SnakeLadders
     def initialize
       self.cells = []
       self.snakes = []
-      snake = Snake.new(13, 6)
-      BOARD_SIZE.times { cells << Cell.new() }
+      snake = Snake.new(14, 7)
+      BOARD_SIZE.times { |number| cells << Cell.new(number) }
       self.snakes.push(snake)
     end
 
-    def final_cell_position
-      @final_cell_position ||= BOARD_SIZE - 1
-    end
-
-    def adjusted_location(new_location)
+    def adjust_location(new_location)
       location = new_location
       eligible_snakes = snakes.select { |snake| snake.start_location == new_location }
       snake = !eligible_snakes.empty? && eligible_snakes.first

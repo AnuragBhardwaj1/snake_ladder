@@ -18,6 +18,11 @@ class SnakeLadder
         return if TERMINATION_COMMANDS.include?(command)
         display_state if INFO_COMMANDS.include?(command)
         game.play(command) if GAMEPLAY_COMMANDS.include?(command) && !game.complete
+        if game.complete
+          display_state
+          puts "Game is complete"
+          exit
+        end
       end
     end
 

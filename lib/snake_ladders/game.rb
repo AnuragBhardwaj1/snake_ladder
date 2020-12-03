@@ -47,13 +47,6 @@ module SnakeLadders
 
       def mark_complete
         self.complete = true
-        after_complete
-      end
-
-      def after_complete
-        display_state
-        p "Game is complete #{current_player.name} is the winner"
-        exit
       end
 
       def board_exausted?
