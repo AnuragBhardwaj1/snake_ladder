@@ -1,0 +1,17 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    minitest (5.14.2)
+    rake (12.3.3)
+    spy (1.0.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  minitest (~> 5.0)
+  rake (~> 12.0)
+  spy
+
+BUNDLED WITH
+   2.1.2
